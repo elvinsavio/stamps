@@ -2,31 +2,47 @@ import { ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Header() {
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
-    <div className="bg-primary font-georgia flex justify-between items-center px-2 py-5">
-      <Link onClick={() => navigate("/shop")} className="hidden sm:flex">Shop</Link>
-      <Link onClick={() => navigate("/shop")} className="flex sm:hidden">
-        <ShopSvg />
-      </Link>
+    <div className="bg-primary font-georgia  px-2 py-5 flex justify-center">
+      <div className="flex justify-between items-center max-w-screen-xl w-full">
+        <Link onClick={() => navigate("/shop")} className="hidden sm:flex">
+          Shop
+        </Link>
+        <Link onClick={() => navigate("/shop")} className="flex sm:hidden">
+          <ShopSvg />
+        </Link>
 
-      <Link onClick={() => navigate("/")}>Logo</Link>
+        <Link onClick={() => navigate("/")}>Logo</Link>
 
-      <div className="gap-3 hidden sm:flex">
-        <Link onClick={() => navigate("/freebie")}>Freebie</Link>
-        <Link onClick={() => navigate("/blog")}>Blog</Link>
-        <Link onClick={() => navigate("/about")}>About</Link>
-      </div>
-      <div className="flex sm:hidden">
-        <MenuSvg />
+        <div className="gap-3 hidden sm:flex">
+          <Link onClick={() => navigate("/freebie")}>Freebie</Link>
+          <Link onClick={() => navigate("/blog")}>Blog</Link>
+          <Link onClick={() => navigate("/about")}>About</Link>
+        </div>
+        <div className="flex sm:hidden">
+          <MenuSvg />
+        </div>
       </div>
     </div>
   );
 }
 
-const Link = ({ children, className = "", onClick }: { children: ReactNode; onClick: () => void, className?: string }) => {
-  return <a onClick={onClick} className={`text-xl font-georgia cursor-pointer ${className}`}>{children}</a>;
+const Link = ({
+  children,
+  className = "",
+  onClick,
+}: {
+  children: ReactNode;
+  onClick: () => void;
+  className?: string;
+}) => {
+  return (
+    <a onClick={onClick} className={`text-xl font-georgia cursor-pointer ${className}`}>
+      {children}
+    </a>
+  );
 };
 
 const ShopSvg = () => {
