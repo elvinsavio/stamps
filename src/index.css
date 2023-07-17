@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: Mark;
+  src: url(./assets/Mark-Pro.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Georgia,;
+  src: url(./assets/Georgia.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: Anvir;
+    src: url(./assets/AvenirLTStd-Book.otf) format("opentype");
+}
