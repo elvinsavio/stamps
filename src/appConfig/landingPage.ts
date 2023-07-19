@@ -17,4 +17,5 @@ export const LandingConfig = {
       subCaption: "This is a smaller caption with a really really long text for it doesnt overflow ",
     },
   ],
+  heroText: "Turn Your Walls Into Captivating Stories!",
 };
