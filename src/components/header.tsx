@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { config } from "../appConfig/appConfig";
 
+import logo from '../assets/images/logo-bnw.png'
 
 export default function Header() {
   const navigate = useNavigate();
@@ -18,7 +19,11 @@ export default function Header() {
           <ShopSvg />
         </Link>
 
-        <Link onClick={() => navigate("/")}>Logo</Link>
+        <Link onClick={() => navigate("/")}>
+          <img src={logo} style={{
+            width: "70%"
+          }}/>
+        </Link>
 
         <div className="gap-3 hidden sm:flex">
           <Link onClick={() => navigate("/freebie")}>Freebie</Link>
