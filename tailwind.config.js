@@ -9,14 +9,12 @@ export default {
       georgia: ["Georgia", "sans-serif"],
       anvir: ["Anvir", "sans-serif"],
     },
-    colors: {
-      "bg-main": "#FAECE1;",
-      "brand-green": "#A3D9CF"
-    },
     extend: {
       colors: {
         'primary': '#A3D9CF',
         "black": "#1F1F1F",
+        "pale": "#FAECE1",
+        "red-shade": "#F8A888"
       }
     },
   },
