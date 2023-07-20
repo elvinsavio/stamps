@@ -12,7 +12,7 @@ export default function Header() {
       height: `${config.headerHeight}px`
     }}>
       <div className="flex justify-between items-center  w-full">
-        <Link onClick={() => navigate("/shop")} className="hidden sm:flex">
+        <Link onClick={() => navigate("/shop")} className="hidden sm:flex pl-2">
           Shop
         </Link>
         <Link onClick={() => navigate("/shop")} className="flex sm:hidden">
@@ -25,7 +25,7 @@ export default function Header() {
           }}/>
         </Link>
 
-        <div className="gap-3 hidden sm:flex">
+        <div className="gap-3 hidden sm:flex pr-2">
           <Link onClick={() => navigate("/freebie")}>Freebie</Link>
           <Link onClick={() => navigate("/blog")}>Blog</Link>
           <Link onClick={() => navigate("/about")}>About</Link>
@@ -48,7 +48,7 @@ const Link = ({
   className?: string;
 }) => {
   return (
-    <a onClick={onClick} className={`text-xl font-georgia cursor-pointer ${className}`}>
+    <a onClick={onClick} className={`text-xl font-georgia cursor-pointer flex justify-center ${className}`}>
       {children}
     </a>
   );
