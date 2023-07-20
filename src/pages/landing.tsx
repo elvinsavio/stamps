@@ -12,15 +12,16 @@ export default function LandingPage() {
         <div className="w-full sm:w-1/2">
           <SlideShow />
         </div>
-        <div className="bg-brand-green/30 w-full py-5 sm:py-0 px-5 flex justify-start items-center">
-          <div className="font-mark text-black font-thin flex flex-col gap-28">
-            <h1 className="text-xl">[logo here]</h1>
-            <h1 className="text-5xl">{LandingConfig.heroText}</h1>
+        <div className="bg-primary/30 w-full py-5 sm:py-0 px-5 sm:flex flex-col justify-around hidden">
+          <h1 className="text-xl">[logo here]</h1>
+          <h1 className="text-[3rem] w-1">{LandingConfig.heroText}</h1>
 
-            <button className="bg-red-shade w-fit p-2 px-3">Shop now!</button>
+          <div className="w-full flex justify-center">
+            <button className="bg-red-shade w-fit p-2 px-3">Shop Now</button>
           </div>
         </div>
       </div>
+      hello world
     </div>
   );
 }
@@ -45,7 +46,7 @@ const SlideShow = () => {
                 height: window.innerHeight - config.headerHeight,
               }}
             >
-              <div className="bottom-10 font-mark absolute left-1/2 text-primary -translate-x-1/2 w-full">
+              <div className="sm:bottom-10 px-14 bottom-1/2 font-mark absolute left-1/2 text-primary -translate-x-1/2 w-full">
                 <h1 className="text-3xl">{slide?.caption}</h1>
                 <h2>{slide?.subCaption}</h2>
               </div>
