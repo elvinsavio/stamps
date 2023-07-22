@@ -15,6 +15,9 @@ export default {
         "black": "#1F1F1F",
         "pale": "#FAECE1",
         "red-shade": "#F8A888"
+      },
+      screens: {
+        "xsm": "360px", 
       }
     },
   },
