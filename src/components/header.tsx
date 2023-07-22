@@ -8,10 +8,10 @@ import logo from '../assets/images/logo-bnw.png'
 export default function Header() {
   const navigate = useNavigate();
   return (
-    <div className="bg-primary font-georgia  px-2 flex justify-center shadow-xl snap-center" style={{
+    <div className="bg-primary font-georgia  px-2 flex justify-center shadow-xl snap-start" style={{
       height: `${config.headerHeight}px`
     }}>
-      <div className="flex justify-between items-center  w-full">
+      <div className="flex justify-between items-center w-full">
         <Link onClick={() => navigate("/shop")} className="hidden sm:flex pl-2">
           Shop
         </Link>

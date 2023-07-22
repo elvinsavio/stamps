@@ -1,13 +1,22 @@
 import { config } from "../appConfig/appConfig";
 import { LandingConfig } from "../appConfig/landingPage";
+
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+
+import SplitSection from "../components/splitSection";
+
 import "swiper/css";
 
 export default function LandingPage() {
   return (
     <div className="">
-      <section className="flex">
+      <SplitSection
+      className="snap-none"
+        style={{
+          height: window.innerHeight - config.headerHeight + 10,
+        }}
+      >
         <div className="w-full sm:w-1/2">
           <SlideShow />
         </div>
@@ -19,10 +28,13 @@ export default function LandingPage() {
             <button className="bg-red-shade w-fit p-2 px-3">Shop Now</button>
           </div>
         </div>
-      </section>
+      </SplitSection>
 
-      <section
-        className="flex flex-col sm:flex-row bg-pale h-fit snap-start "
+      <SplitSection
+      className="snap-start"
+        style={{
+          height: window.innerHeight,
+        }}
       >
         <div className="w-full sm:w-1/2  flex flex-col justify-center p-[5%] ">
           <h1 className="text-5xl font-anvir w-fit">New Arrivals</h1>
@@ -34,7 +46,7 @@ export default function LandingPage() {
         <div className="sm:flex justify-center items-center w-full sm:w-1/2 relative hidden my-20 min-h-[700px]">
           <img src="https://picsum.photos/550/700" className=""></img>
         </div>
-      </section>
+      </SplitSection>
     </div>
   );
 }
@@ -56,9 +68,9 @@ const SlideShow = () => {
               className="h-full bg-cover relative"
               style={{
                 backgroundImage: `url(${slide?.imgSrc})`,
-                height: window.innerHeight - config.headerHeight,
+                height: window.innerHeight - config.headerHeight + 10,
               }}
-            > 
+            >
               <div className="sm:bottom-10 px-14 bottom-1/2 font-mark absolute left-1/2 text-primary -translate-x-1/2 w-full">
                 <h1 className="text-3xl">{slide?.caption}</h1>
                 <h2>{slide?.subCaption}</h2>
