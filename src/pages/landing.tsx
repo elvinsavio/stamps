@@ -12,7 +12,7 @@ export default function LandingPage() {
   return (
     <div className="">
       <SplitSection
-      className="snap-none"
+        className="snap-none"
         style={{
           height: window.innerHeight - config.headerHeight + 10,
         }}
@@ -31,7 +31,7 @@ export default function LandingPage() {
       </SplitSection>
 
       <SplitSection
-      className="snap-start"
+        className="snap-start justify-around"
         style={{
           height: window.innerHeight,
         }}
@@ -40,11 +40,13 @@ export default function LandingPage() {
           <h1 className="text-5xl font-anvir w-fit">New Arrivals</h1>
           <h3 className="text-2xl text-black/75 font-anvir w-fit">Every Sunday</h3>
           <p className="text-sm text-black/75 w-full md:w-1/2  py-10">{LandingConfig.newText}</p>
-          <button className="bg-red-shade w-fit p-2 px-3">Shop Now</button>
+          <div className="flex justify-center sm:justify-start">
+            <button className="bg-red-shade w-fit p-2 px-3">Shop Now</button>
+          </div>
         </div>
 
-        <div className="sm:flex justify-center items-center w-full sm:w-1/2 relative hidden my-20 min-h-[700px]">
-          <img src="https://picsum.photos/550/700" className=""></img>
+        <div className="justify-center flex items-center w-full sm:w-1/2 ">
+          <img src="https://picsum.photos/550/550" loading="lazy" className="px-20 py-5 "></img>
         </div>
       </SplitSection>
     </div>
