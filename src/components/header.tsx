@@ -3,29 +3,30 @@ import { useNavigate } from "react-router-dom";
 
 import { config } from "../appConfig/appConfig";
 
-import logo from '../assets/images/logo-bnw.png'
+import logo from "../assets/images/logo-bnw.png";
 
 export default function Header() {
   const navigate = useNavigate();
   return (
-    <div className="bg-primary font-georgia  px-2 flex justify-center shadow-xl snap-start" style={{
-      height: `${config.headerHeight}px`
-    }}>
-      <div className="flex justify-between items-center w-full">
-        <Link onClick={() => navigate("/shop")} className="hidden sm:flex pl-2">
+    <div
+      className="bg-primary font-georgia  px-2 flex justify-center shadow-xl snap-start"
+      style={{
+        height: `${config.headerHeight}px`,
+      }}
+    >
+      <div className="flex justify-between items-center w-full p-2">
+        <Link onClick={() => navigate("/shop")} className="hidden sm:flex-1 sm:flex items-start justify-start ">
           Shop
         </Link>
-        <Link onClick={() => navigate("/shop")} className="flex sm:hidden">
+        <Link onClick={() => navigate("/shop")} className="flex sm:hidden sm:flex-1">
           <ShopSvg />
         </Link>
 
-        <Link onClick={() => navigate("/")}>
-          <img src={logo} style={{
-            width: "70%"
-          }}/>
+        <Link onClick={() => navigate("/")} className="flex-1 flex p-1 items-center justify-center object-contain">
+          <img style={{ height: config.headerHeight - 12 }} src={logo} />
         </Link>
 
-        <div className="gap-3 hidden sm:flex pr-2">
+        <div className="gap-3 hidden sm:flex flex-1 justify-end">
           <Link onClick={() => navigate("/freebie")}>Freebie</Link>
           <Link onClick={() => navigate("/blog")}>Blog</Link>
           <Link onClick={() => navigate("/about")}>About</Link>
@@ -48,7 +49,7 @@ const Link = ({
   className?: string;
 }) => {
   return (
-    <a onClick={onClick} className={`text-xl font-georgia cursor-pointer flex justify-center ${className}`}>
+    <a onClick={onClick} className={`text-lg font-georgia cursor-pointer flex  ${className}`}>
       {children}
     </a>
   );
