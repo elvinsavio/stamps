@@ -18,6 +18,7 @@ export const LandingConfig = {
     },
   ],
   landingText: "Turn Your Walls Into Captivating Stories!",
-
-  newText: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis aliquam voluptatem, neque, assumenda officiis quidem eligendi nesciunt mollitia dolores architecto sed non, alias eaque beatae nisi dolor corporis facere tempora.",
+  newImage: "https://picsum.photos/1550/1550",
+  newText:
+    "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis aliquam voluptatem, neque, assumenda officiis quidem eligendi nesciunt mollitia dolores architecto sed non, alias eaque beatae nisi dolor corporis facere tempora.",
 };

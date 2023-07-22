@@ -1,4 +1,5 @@
 import { config } from "../appConfig/appConfig";
+import Button from "./ui/buttons";
 
 export default function Footer() {
   return (
@@ -10,9 +11,9 @@ export default function Footer() {
             className="px-5 py-2 outline outline-black outline-1"
             placeholder={config?.footer?.placeholder}
           ></input>
-          <button className="px-5 py-2 bg-red-shade hover:scale-[105%] hover:shadow-lg trans">
+          <Button>
             {config.footer?.buttonText}
-          </button>
+          </Button>
         </div>
         <div className="flex items-center justify-center gap-4">
           <FaceBookSvg />

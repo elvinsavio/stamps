@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SplitSection from "../components/splitSection";
 
 import "swiper/css";
+import Button from "../components/ui/buttons";
 
 export default function LandingPage() {
   return (
@@ -25,7 +26,7 @@ export default function LandingPage() {
           <h1 className="text-[3rem] w-1 font-anvir">{LandingConfig?.landingText}</h1>
 
           <div className="w-full flex justify-center">
-            <button className="bg-red-shade w-fit p-2 px-3">Shop Now</button>
+            <Button>Shop Now</Button>
           </div>
         </div>
       </SplitSection>
@@ -33,7 +34,7 @@ export default function LandingPage() {
       <SplitSection
         className="snap-start justify-around"
         style={{
-          height: window.innerHeight,
+          minHeight: window.innerHeight,
         }}
       >
         <div className="w-full sm:w-1/2  flex flex-col justify-center p-[5%] ">
@@ -41,12 +42,17 @@ export default function LandingPage() {
           <h3 className="text-2xl text-black/75 font-anvir w-fit">Every Sunday</h3>
           <p className="text-sm text-black/75 w-full md:w-[300px]  py-10">{LandingConfig.newText}</p>
           <div className="flex justify-center sm:justify-start">
-            <button className="bg-red-shade w-fit p-2 px-3">Shop Now</button>
+            <Button>Shop Now</Button>
           </div>
         </div>
 
         <div className="justify-center flex items-center w-full sm:w-1/2 ">
-          <img src="https://picsum.photos/550/550" loading="lazy" className="px-20 py-5 "></img>
+          <div
+            style={{
+              backgroundImage: `url(${LandingConfig.newImage})`,
+            }}
+            className="h-[260px] sm:h-[460px] md:h-[560px] aspect-square rounded shadow-lg flex bg-contain bg-no-repeat bg-center bg-slate-900"
+          />
         </div>
       </SplitSection>
     </div>
