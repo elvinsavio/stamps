@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { config } from "../appConfig/appConfig";
@@ -9,30 +9,73 @@ export default function Header() {
   const navigate = useNavigate();
   return (
     <div
-      className="bg-primary font-georgia  px-2 flex justify-center shadow-xl snap-start"
+      className="flex justify-center px-2 shadow-xl bg-primary font-georgia snap-start"
       style={{
         height: `${config.headerHeight}px`,
       }}
     >
-      <div className="flex justify-between items-center w-full p-2">
-        <Link onClick={() => navigate("/shop")} className="hidden sm:flex-1 sm:flex items-start justify-start ">
+      <div className="flex items-center justify-between w-full p-2">
+        {/* defailt menu */}
+        <Link onClick={() => navigate("/shop")} className="items-start justify-start hidden sm:flex-1 sm:flex ">
           Shop
         </Link>
         <Link onClick={() => navigate("/shop")} className="flex sm:hidden sm:flex-1">
           <ShopSvg />
         </Link>
 
-        <Link onClick={() => navigate("/")} className="flex-1 flex p-1 items-center justify-center object-contain">
+        <Link onClick={() => navigate("/")} className="flex items-center justify-center flex-1 object-contain p-1">
           <img style={{ height: config.headerHeight - 12 }} src={logo} />
         </Link>
 
-        <div className="gap-3 hidden sm:flex flex-1 justify-end">
-          <Link onClick={() => navigate("/freebie")}>Freebie</Link>
+        <div className="justify-end flex-1 hidden gap-3 sm:flex">
+          <button
+            data-dropdown-toggle="dropdown-header-freebie"
+            type="button"
+            className="text-lg cursor-pointer font-georgia"
+          >
+            Freebie
+          </button>
+
+          <div
+            id="dropdown-header-freebie"
+            className="z-10 hidden overflow-hidden rounded shadow-lg bg-primary w-44"
+          >
+            <ul className="">
+              {config?.headerDD?.map((item, index) => {
+                return <MenuItem key={index} title={item?.title} onClick={() => navigate(item.ref)} />;
+              })}
+            </ul>
+          </div>
+
           <Link onClick={() => navigate("/blog")}>Blog</Link>
           <Link onClick={() => navigate("/about")}>About</Link>
         </div>
+
+        {/* mobile dropdown */}
         <div className="flex sm:hidden">
-          <MenuSvg />
+          <button
+            data-dropdown-toggle="dropdown-header-mobile"
+            type="button"
+            className="text-lg cursor-pointer font-georgia"
+          >
+            <MenuSvg />
+          </button>
+          <div
+            id="dropdown-header-mobile"
+            className="z-10 hidden w-screen overflow-hidden shadow-lg bg-primary font-mark"
+          >
+
+            <ul>
+              <li className="block px-4 py-2 text-black hover:bg-black/60 hover:text-white ">Freebies</li>
+              {config?.headerDD?.map((item, index) => {
+                return <MenuItem key={index} title={item?.title} onClick={() => navigate(item.ref)}  className="pl-6 text-sm" />;
+              })}
+            </ul>
+            <ul>
+              <MenuItem title={"Blog"} onClick={() => navigate("/blog")} />
+              <MenuItem title="About" onClick={() => navigate("/about")} />
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -49,7 +92,7 @@ const Link = ({
   className?: string;
 }) => {
   return (
-    <a onClick={onClick} className={`text-lg font-georgia cursor-pointer flex  ${className}`}>
+    <a onClick={onClick} className={`text-lg font-georgia cursor-pointer flex ${className}`}>
       {children}
     </a>
   );
@@ -71,5 +114,15 @@ const MenuSvg = () => {
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
       <path fill="currentColor" d="M3 18v-2h18v2H3Zm0-5v-2h18v2H3Zm0-5V6h18v2H3Z" />
     </svg>
+  );
+};
+
+const MenuItem = ({ title, onClick, className = "" }: { title: string; onClick: () => void; className?: string }) => {
+  return (
+    <li>
+      <span onClick={onClick} className={`block px-4 py-2 text-black hover:bg-black/60 hover:text-white ${className}`}>
+        {title}
+      </span>
+    </li>
   );
 };
