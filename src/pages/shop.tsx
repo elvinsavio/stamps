@@ -41,7 +41,7 @@ export default function Shop() {
       </div>
 
       <div className="flex flex-col items-center min-h-screen justify">
-        <div className="grid grid-cols-1 gap-6 p-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 p-2 xsm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
           {products?.map((product, index) => {
             return <ProductCard key={index} product={product} />;
           })}

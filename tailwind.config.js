@@ -17,7 +17,7 @@ export default {
         "red-shade": "#F8A888"
       },
       screens: {
-        "xsm": "360px", 
+        "xsm": "420px", 
       }
     },
   },
