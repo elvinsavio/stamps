@@ -36,10 +36,7 @@ export default function Header() {
             Freebie
           </button>
 
-          <div
-            id="dropdown-header-freebie"
-            className="z-10 hidden overflow-hidden rounded shadow-lg bg-primary w-44"
-          >
+          <div id="dropdown-header-freebie" className="z-10 hidden overflow-hidden rounded shadow-lg bg-primary w-44">
             <ul className="">
               {config?.headerDD?.map((item, index) => {
                 return <MenuItem key={index} title={item?.title} onClick={() => navigate(item.ref)} />;
@@ -64,11 +61,17 @@ export default function Header() {
             id="dropdown-header-mobile"
             className="z-10 hidden w-screen overflow-hidden shadow-lg bg-primary font-mark"
           >
-
             <ul>
               <li className="block px-4 py-2 text-black hover:bg-black/60 hover:text-white ">Freebies</li>
               {config?.headerDD?.map((item, index) => {
-                return <MenuItem key={index} title={item?.title} onClick={() => navigate(item.ref)}  className="pl-6 text-sm" />;
+                return (
+                  <MenuItem
+                    key={index}
+                    title={item?.title}
+                    onClick={() => navigate(item.ref)}
+                    className="pl-6 text-sm"
+                  />
+                );
               })}
             </ul>
             <ul>
