@@ -22,30 +22,30 @@ export default function Shop() {
     return discount ? price - price * (discount / 100) : price;
   };
   useEffect(() => {
-    const tempProduct = products;
     switch (filter) {
       case "Recommended":
         setProducts(
-          tempProduct.sort((a, b) => {
+          products.sort((a, b) => {
             return a.id - b.id;
           })
         );
         break;
       case "Price (Lowest)":
         setProducts(
-          tempProduct.sort((a, b) => {
+          products.sort((a, b) => {
             return getDiscountedPrice(b.price, b.discount) - getDiscountedPrice(a.price, a.discount);
           })
         );
         break;
       case "Price (Highest)":
         setProducts(
-          tempProduct.sort((a, b) => {
+          products.sort((a, b) => {
             return getDiscountedPrice(a.price, a.discount) - getDiscountedPrice(b.price, b.discount);
           })
         );
         break;
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
 
   useEffect(() => {
