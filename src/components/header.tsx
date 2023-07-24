@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { config } from "../appConfig/appConfig";
