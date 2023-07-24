@@ -1,9 +1,19 @@
 export const shopConfig = {
   shop: {
+    category: [
+      { category: "All", description: "Hello world" },
+      { category: "Books", description: "Reading equipment for people who read as a hobby" },
+      { category: "Posters" },
+      { category: "Socks" },
+      { category: "Mouse" },
+      { category: "TV" },
+      { category: "Caterpillar 793F CMD XR9000 MegaHauler - 350 Ton Payload Earth Mover" },
+    ],
     products: [
       {
         id: 1,
-        title: "Black Blink 182 A3 poster with Black Blink 182 A3 poster with frame Black Blink 182 A3 poster with frame",
+        title:
+          "Black Blink 182 A3 poster with Black Blink 182 A3 poster with frame Black Blink 182 A3 poster with frame",
         description: "High quality plastic",
         by: "Essel Press",
         price: 1200,
