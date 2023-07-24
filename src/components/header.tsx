@@ -14,7 +14,7 @@ export default function Header() {
         height: `${config.headerHeight}px`,
       }}
     >
-      <div className="flex items-center justify-between w-full p-2">
+      <div className="container flex items-center justify-between w-full p-2">
         {/* defailt menu */}
         <Link onClick={() => navigate("/shop")} className="items-start justify-start hidden sm:flex-1 sm:flex ">
           Shop
