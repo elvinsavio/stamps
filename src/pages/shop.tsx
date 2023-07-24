@@ -2,8 +2,8 @@ import { shopConfig } from "../appConfig/shopConfig";
 
 export default function Shop() {
   return (
-    <div className="flex min-h-screen">
-      <div className="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 place-items-center">
+    <div className="flex justify-center min-h-screen">
+      <div className="grid grid-cols-1 gap-6 p-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {shopConfig?.shop?.products?.map((product, index) => {
           return <ProductCard key={index} product={product} />;
         })}
@@ -29,7 +29,7 @@ interface IProductCard {
 
 const ProductCard = ({ product }: IProductCard) => {
   return (
-    <div className="w-[260px] mx-2 my-2 font-mark rounded-lg snap-start shadow flex flex-col overflow-hidden transition-all max-h-[400px]">
+    <div className="w-full sm:w-[220px] mx-auto  font-mark rounded-lg snap-center shadow flex flex-col overflow-hidden transition-all max-h-[400px]">
       <div className="overflow-hidden">
       <div
         style={{ backgroundImage: `url(${product?.imgSrc})` }}
