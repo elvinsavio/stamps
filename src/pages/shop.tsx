@@ -34,7 +34,7 @@ export default function Shop() {
       case "Price (Lowest)":
         setProducts(
           tempProduct.sort((a, b) => {
-            return getDiscountedPrice(a.price, a.discount) - getDiscountedPrice(b.price, b.discount);
+            return getDiscountedPrice(b.price, b.discount) - getDiscountedPrice(a.price, a.discount);
           })
         );
         break;
