@@ -21,18 +21,18 @@ export default function LandingPage() {
         <div className="w-full sm:w-1/2">
           <SlideShow />
         </div>
-        <div className="bg-primary/30 w-full py-5 sm:py-0 px-5 sm:flex flex-col justify-around hidden">
+        <div className="flex-col justify-around hidden w-full px-5 py-5 bg-primary/30 sm:py-0 sm:flex">
           <h1 className="text-xl">[logo here]</h1>
           <h1 className="text-[3rem] w-1 font-anvir">{LandingConfig?.landingText}</h1>
 
-          <div className="w-full flex justify-center">
+          <div className="flex justify-center w-full">
             <Button>Shop Now</Button>
           </div>
         </div>
       </SplitSection>
 
       <SplitSection
-        className="snap-start justify-around"
+        className="justify-around snap-start"
         style={{
           minHeight: window.innerHeight,
         }}
@@ -46,12 +46,12 @@ export default function LandingPage() {
           </div>
         </div>
 
-        <div className="justify-center flex items-center w-full sm:w-1/2 ">
+        <div className="flex items-center justify-center w-full sm:w-1/2 ">
           <div
             style={{
               backgroundImage: `url(${LandingConfig.newImage})`,
             }}
-            className="h-[260px] sm:h-[460px] md:h-[560px] aspect-square rounded shadow-lg flex bg-contain bg-no-repeat bg-center bg-slate-900"
+            className="h-[200px] sm:h-[260px] md:h-[360px] lg:h-[460px] aspect-square rounded shadow-lg flex bg-contain bg-no-repeat bg-center bg-slate-900"
           />
         </div>
       </SplitSection>
@@ -73,13 +73,13 @@ const SlideShow = () => {
         return (
           <SwiperSlide key={index}>
             <div
-              className="h-full bg-cover relative"
+              className="relative h-full bg-cover"
               style={{
                 backgroundImage: `url(${slide?.imgSrc})`,
                 height: window.innerHeight - config.headerHeight + 10,
               }}
             >
-              <div className="sm:bottom-10 px-14 bottom-1/2 font-mark absolute left-1/2 text-primary -translate-x-1/2 w-full">
+              <div className="absolute w-full -translate-x-1/2 sm:bottom-10 px-14 bottom-1/2 font-mark left-1/2 text-primary">
                 <h1 className="text-3xl">{slide?.caption}</h1>
                 <h2>{slide?.subCaption}</h2>
               </div>
