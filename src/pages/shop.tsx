@@ -137,11 +137,11 @@ interface IProductCard {
 
 const ProductCard = ({ product }: IProductCard) => {
   return (
-    <div className="w-full sm:w-[220px] mx-auto  font-mark rounded-lg snap-center shadow flex flex-col overflow-hidden transition-all max-h-[400px]">
+    <div className="w-full sm:w-[220px] mx-auto  font-mark rounded-lg snap-center shadow flex flex-col overflow-hidden transition-all max-h-[420px]">
       <div className="overflow-hidden">
         <div
           style={{ backgroundImage: `url(${product?.imgSrc})` }}
-          className=" bg-cover bg-center h-[200px] transition-all p-2"
+          className=" bg-cover bg-center h-[250px] transition-all p-2"
         >
           <span className="flex-wrap px-2 text-white bg-black rounded w-fit line-clamp-1">{product.category}</span>
         </div>
