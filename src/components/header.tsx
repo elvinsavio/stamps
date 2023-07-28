@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { config } from "../appConfig/appConfig";
+import { shopConfig } from "../appConfig/shopConfig";
 
 import logo from "../assets/images/logo-bnw.png";
 
@@ -31,15 +32,15 @@ export default function Header() {
           <button
             data-dropdown-toggle="dropdown-header-freebie"
             type="button"
-            className="text-lg cursor-pointer font-georgia"
+            className="text-lg text-white cursor-pointer font-georgia"
           >
             Freebie
           </button>
 
           <div id="dropdown-header-freebie" className="z-10 hidden overflow-hidden rounded shadow-lg bg-primary w-44">
             <ul className="">
-              {config?.headerDD?.map((item, index) => {
-                return <MenuItem key={index} title={item?.title} onClick={() => navigate(item.ref)} />;
+              {shopConfig?.shop.category?.map((item, index) => {
+              return <MenuItem key={index} title={item?.category} onClick={() => null} />;
               })}
             </ul>
           </div>
@@ -62,13 +63,13 @@ export default function Header() {
             className="z-10 hidden w-screen overflow-hidden shadow-lg bg-primary font-mark"
           >
             <ul>
-              <li className="block px-4 py-2 text-black hover:bg-black/60 hover:text-white ">Freebies</li>
-              {config?.headerDD?.map((item, index) => {
+              <li className="block px-4 py-2 text-white hover:bg-black/60 ">Freebies</li>
+              {shopConfig?.shop.category?.map((item, index) => {
                 return (
                   <MenuItem
                     key={index}
-                    title={item?.title}
-                    onClick={() => navigate(item.ref)}
+                    title={item?.category}
+                    onClick={() => null}
                     className="pl-6 text-sm"
                   />
                 );
@@ -123,7 +124,7 @@ const MenuSvg = () => {
 const MenuItem = ({ title, onClick, className = "" }: { title: string; onClick: () => void; className?: string }) => {
   return (
     <li>
-      <span onClick={onClick} className={`block px-4 py-2 text-black hover:bg-black/60 hover:text-white ${className}`}>
+      <span onClick={onClick} className={`block px-4 py-2  hover:bg-black/60 text-white ${className}`}>
         {title}
       </span>
     </li>

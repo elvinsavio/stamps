@@ -1,7 +1,6 @@
 export const shopConfig = {
   shop: {
     category: [
-      { category: "All", description: "Hello world" },
       { category: "Books", description: "Reading equipment for people who read as a hobby" },
       { category: "Posters" },
       { category: "Socks" },
