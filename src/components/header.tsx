@@ -9,7 +9,7 @@ export default function Header() {
   const navigate = useNavigate();
   return (
     <div
-      className="flex justify-center px-2 shadow-xl bg-primary font-georgia snap-start"
+      className="flex justify-center px-2 text-white shadow-xl bg-primary font-georgia snap-start "
       style={{
         height: `${config.headerHeight}px`,
       }}
