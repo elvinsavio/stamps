@@ -11,9 +11,10 @@ export default {
     },
     extend: {
       colors: {
-        'primary': '#A3D9CF',
-        "black": "#1F1F1F",
-        "pale": "#FAECE1",
+        'primary': '#2F5050',
+        'secondary': "#2F3150",
+        "black": "#050505;",
+        "pale": "#F9F1F1",
         "red-shade": "#F8A888"
       },
       screens: {
