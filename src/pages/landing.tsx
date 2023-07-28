@@ -19,8 +19,8 @@ export default function LandingPage() {
         }}
       >
         <div className="relative w-full h-full">
-          <div className="absolute z-10 -translate-x-1/2 top-1/2 left-1/2">
-            <h1 className="text-4xl font-mark text-primary">{LandingConfig?.landingText}</h1>
+          <div className="absolute z-10 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+            <h1 className="text-3xl text-center text-white sm:text-4xl font-mark">{LandingConfig?.landingText}</h1>
           </div>
           <SlideShow />
         </div>
@@ -35,7 +35,7 @@ export default function LandingPage() {
       </div>
 
       <SplitSection
-        className="justify-around snap-start"
+        className="flex-col-reverse justify-around snap-start sm:flex "
         style={{
           minHeight: window.innerHeight,
         }}
@@ -49,7 +49,7 @@ export default function LandingPage() {
           </div>
         </div>
 
-        <div className="flex items-center justify-center w-full sm:w-1/2 ">
+        <div className="flex items-center justify-center w-full sm:w-1/2">
           <div
             style={{
               backgroundImage: `url(${LandingConfig.newImage})`,
@@ -71,6 +71,7 @@ const SlideShow = () => {
         disableOnInteraction: false,
       }}
       modules={[Autoplay]}
+      loop
     >
       {LandingConfig.slideShow.map((slide, index) => {
         return (
@@ -82,9 +83,10 @@ const SlideShow = () => {
                 height: window.innerHeight - config.headerHeight + 10,
               }}
             />
-            <div className="absolute w-full -translate-x-1/2 sm:bottom-10 px-14 bottom-1/2 font-mark left-1/2 text-primary">
-              <h1 className="text-3xl">{slide?.caption}</h1>
-              <h2>{slide?.subCaption}</h2>
+            <div className="absolute w-full text-white -translate-x-1/2 bottom-10 px-14 font-mark left-1/2">
+              <span className="text-xl sm:text-3xl">{slide?.caption}</span>
+              <br/>
+              <span className="text-sm sm:text-xl">{slide?.subCaption}</span> 
             </div>
           </SwiperSlide>
         );
