@@ -45,7 +45,7 @@ export default function Shop() {
         );
         break;
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
 
   useEffect(() => {
@@ -60,20 +60,28 @@ export default function Shop() {
 
   return (
     <>
-      <div className="flex flex-col items-start justify-center border-b ">
-        <div className="w-full p-2 text-center font-mark bg-pale/40 ">
+      <div className="flex flex-col items-start justify-center border-b bg-pale">
+        {/* <div className="w-full p-2 text-center font-mark bg-pale/40 ">
           <h1 className="text-3xl">{category?.category}</h1>
           <p className="text-xl">{category?.description}</p>
-        </div>
+        </div> */}
         <div className=" contianer">
           <div className="flex overflow-x-auto snap-x">
+            <div
+              onClick={() => setCategory({ category: "All" })}
+              className={`px-5 py-2 border-r font-mark whitespace-nowrap snap-start cursor-pointer  ${
+                category?.category === "All" ? "bg-primary text-white "  : "bg-pale"
+              }`}
+            >
+              All
+            </div>
             {shopConfig?.shop?.category?.map((_category, index) => {
               return (
                 <div
                   key={index}
                   onClick={() => setCategory(_category)}
-                  className={`px-5 py-2 border-r font-mark whitespace-nowrap snap-start cursor-pointer ${
-                    category?.category === _category.category ? "bg-pale/40" : ""
+                  className={`px-5 py-2 font-mark whitespace-nowrap snap-start cursor-pointer  ${
+                    category?.category === _category.category ? "bg-primary text-white" : "bg-pale"
                   }`}
                 >
                   {_category.category}
@@ -84,12 +92,12 @@ export default function Shop() {
         </div>
       </div>
 
-      <div className="flex items-center gap-2 p-2">
+      <div className="flex items-center gap-2 p-2 bg-pale">
         <p>Sort by</p>
 
         <button
           data-dropdown-toggle="dropdown"
-          className="flex items-center justify-center p-1 px-2 text-sm text-center text-black rounded bg-primary "
+          className="flex items-center justify-center p-1 px-2 text-sm text-center text-white rounded bg-primary "
           type="button"
         >
           {filter}
@@ -109,8 +117,8 @@ export default function Shop() {
             />
           </svg>
         </button>
-        <div id="dropdown" className="z-10 hidden text-black divide-y rounded shadow bg-primary min-w-44">
-          <ul className="py-2 text-sm">
+        <div id="dropdown" className="z-10 hidden overflow-hidden text-black rounded shadow bg-primary min-w-44">
+          <ul className="text-sm">
             <DropDownItem onClick={() => setFilter("Recommended")}>Recommended</DropDownItem>
             <DropDownItem onClick={() => setFilter("Price (Lowest)")}>Price (Lowest)</DropDownItem>
             <DropDownItem onClick={() => setFilter("Price (Highest)")}>Price (Highest)</DropDownItem>
@@ -118,8 +126,11 @@ export default function Shop() {
           </ul>
         </div>
       </div>
+      <div>
+      <p className="px-2 bg-pale">{category?.description}</p>
+      </div>
 
-      <div className="flex flex-col items-center min-h-screen justify">
+      <div className="flex flex-col items-center min-h-screen justify bg-pale">
         {products?.length === 0 && <span className="p-2 text-xl">Nothing found ¯\_(ツ)_/¯</span>}
         <div className="grid grid-cols-1 gap-6 p-2 xsm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
           {products?.map((product, index) => {
@@ -137,7 +148,7 @@ interface IProductCard {
 
 const ProductCard = ({ product }: IProductCard) => {
   return (
-    <div className="w-full sm:w-[220px] mx-auto  font-mark rounded-lg snap-center shadow flex flex-col overflow-hidden transition-all max-h-[420px]">
+    <div className="w-full sm:w-[220px] mx-auto shadow-secondary shadow-2xl  font-mark rounded-lg snap-center shadow- flex flex-col overflow-hidden transition-all max-h-[420px] bg-white">
       <div className="overflow-hidden">
         <div
           style={{ backgroundImage: `url(${product?.imgSrc})` }}
@@ -160,14 +171,14 @@ const ProductCard = ({ product }: IProductCard) => {
               <div className="flex items-center gap-2">
                 <span className="">{product?.price - product?.price * (product?.discount / 100)}₹</span>
                 <span className="text-sm line-through">{product?.price}₹</span>
-                <span className="px-2 text-sm bg-red-200">{product?.discount}%</span>
+                <span className="px-2 text-sm bg-red-200 rounded">{product?.discount}%</span>
               </div>
             ) : (
               <span className="">{product?.price}₹</span>
             )}
           </div>
-          <a href={product?.redirectUrl} target="_blank" className="w-full p-1 font-bold text-center bg-green-500">
-            Shop
+          <a href={product?.redirectUrl} target="_blank" className="w-full p-1 font-bold text-center text-white bg-secondary">
+            Buy now!
           </a>
         </div>
       </div>
@@ -178,7 +189,7 @@ const ProductCard = ({ product }: IProductCard) => {
 const DropDownItem = ({ children, onClick }: { children: ReactNode; onClick: () => void }) => {
   return (
     <li>
-      <span onClick={onClick} className="block px-4 py-2 cursor-pointer hover:bg-black/60 hover:text-white ">
+      <span onClick={onClick} className="block px-4 py-2 text-white cursor-pointer hover:bg-black/60 hover:bg-secondary">
         {children}
       </span>
     </li>

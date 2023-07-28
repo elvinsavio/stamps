@@ -6,7 +6,7 @@ export const shopConfig = {
       { category: "Socks" },
       { category: "Mouse" },
       { category: "TV" },
-      { category: "Caterpillar 793F CMD XR9000 MegaHauler - 350 Ton Payload Earth Mover" },
+      { category: "Caterpillar" },
     ],
     products: [
       {
@@ -52,7 +52,7 @@ export const shopConfig = {
         discount: 10,
         imgSrc: "https://picsum.photos/id/133/1200",
         redirectUrl: "google.com",
-        category: "Caterpillar 793F CMD XR9000 MegaHauler - 350 Ton Payload Earth Mover"
+        category: "Caterpillar"
       },
       {
         id: 5,
