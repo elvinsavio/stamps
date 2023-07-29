@@ -54,7 +54,7 @@ export default function LandingPage() {
             style={{
               backgroundImage: `url(${LandingConfig.newImage})`,
             }}
-            className="h-[200px] sm:h-[260px] md:h-[360px] lg:h-[460px] aspect-square rounded shadow-lg flex bg-contain bg-no-repeat bg-center bg-slate-900"
+            className="h-[200px] sm:h-[260px] md:h-[360px] lg:h-[460px] aspect-square shadow-lg flex bg-contain bg-no-repeat bg-center bg-slate-900"
           />
         </div>
       </SplitSection>

@@ -7,7 +7,7 @@ interface IProps {
 export default function Button({ children, className = "" }: IProps) {
   return (
     <button
-      className={`bg-red-shade w-fit p-2 px-3 rounded hover:scale-[105%] hover:shadow-lg transition-all ${className}`}
+      className={`bg-red-shade w-fit p-2 px-3 shadow-lg transition-all ${className}`}
     >
       {children}
     </button>

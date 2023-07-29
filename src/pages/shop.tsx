@@ -101,7 +101,7 @@ export default function Shop() {
 
         <button
           data-dropdown-toggle="dropdown"
-          className="flex items-center justify-center p-1 px-2 text-sm text-center text-white rounded bg-primary "
+          className="flex items-center justify-center p-1 px-2 text-sm text-center text-white bg-primary "
           type="button"
         >
           {filter}
@@ -121,7 +121,7 @@ export default function Shop() {
             />
           </svg>
         </button>
-        <div id="dropdown" className="z-10 hidden overflow-hidden text-black rounded shadow bg-primary min-w-44">
+        <div id="dropdown" className="z-10 hidden overflow-hidden text-black shadow bg-primary min-w-44">
           <ul className="text-sm">
             <DropDownItem onClick={() => setFilter("Recommended")}>Recommended</DropDownItem>
             <DropDownItem onClick={() => setFilter("Price (Lowest)")}>Price (Lowest)</DropDownItem>
@@ -152,13 +152,13 @@ interface IProductCard {
 
 const ProductCard = ({ product }: IProductCard) => {
   return (
-    <div className="w-full sm:w-[220px] mx-auto shadow-secondary shadow-2xl  font-mark rounded-lg snap-center shadow- flex flex-col overflow-hidden transition-all max-h-[420px] bg-white">
+    <div className="w-full sm:w-[220px] mx-auto shadow-secondary shadow-2xl  font-mark snap-center shadow- flex flex-col overflow-hidden transition-all max-h-[420px] bg-white">
       <div className="overflow-hidden">
         <div
           style={{ backgroundImage: `url(${product?.imgSrc})` }}
           className=" bg-cover bg-center h-[250px] transition-all p-2"
         >
-          <span className="flex-wrap px-2 text-white bg-black rounded w-fit line-clamp-1">{product.category}</span>
+          <span className="flex-wrap px-2 text-white bg-black w-fit line-clamp-1">{product.category}</span>
         </div>
       </div>
       <div className="flex flex-col justify-between flex-1">
@@ -175,7 +175,7 @@ const ProductCard = ({ product }: IProductCard) => {
               <div className="flex items-center gap-2">
                 <span className="">{product?.price - product?.price * (product?.discount / 100)}₹</span>
                 <span className="text-sm line-through">{product?.price}₹</span>
-                <span className="px-2 text-sm bg-red-200 rounded">{product?.discount}%</span>
+                <span className="px-2 text-sm bg-red-200 ">{product?.discount}%</span>
               </div>
             ) : (
               <span className="">{product?.price}₹</span>
