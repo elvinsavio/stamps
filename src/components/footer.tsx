@@ -1,5 +1,6 @@
 import { config } from "../appConfig/appConfig";
 import Button from "./ui/buttons";
+import { Input } from "./ui/input";
 
 export default function Footer() {
   return (
@@ -7,13 +8,8 @@ export default function Footer() {
       <div className="flex flex-col gap-2 p-2 sm:p-10 bg-white/50 ">
         <h3 className="text-center">{config?.footer?.main}</h3>
         <div className="flex flex-col justify-center gap-2 sm:flex-row">
-          <input
-            className="px-5 py-2 outline outline-black outline-1"
-            placeholder={config?.footer?.placeholder}
-          ></input>
-          <Button className="w-full sm:w-auto ">
-            {config.footer?.buttonText}
-          </Button>
+          <Input placeholder={config?.footer?.placeholder} />
+          <Button className="w-full sm:w-auto ">{config.footer?.buttonText}</Button>
         </div>
         <div className="flex items-center justify-center gap-4">
           <FaceBookSvg />
