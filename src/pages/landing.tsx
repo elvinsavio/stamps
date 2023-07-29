@@ -8,8 +8,10 @@ import SplitSection from "../components/splitSection";
 
 import "swiper/css";
 import Button from "../components/ui/buttons";
+import { useNavigate } from "react-router-dom";
 
 export default function LandingPage() {
+  const navigate = useNavigate()
   return (
     <div className="">
       <div
@@ -45,7 +47,7 @@ export default function LandingPage() {
           <h3 className="text-2xl text-black/75 font-anvir w-fit">Every Sunday</h3>
           <p className="text-sm text-black/75 w-full md:w-[300px]  py-10">{LandingConfig.newText}</p>
           <div className="flex justify-center sm:justify-start">
-            <Button>Shop Now</Button>
+            <Button onClick={() => navigate("/shop")}>Shop Now</Button>
           </div>
         </div>
 
