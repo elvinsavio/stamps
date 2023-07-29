@@ -39,9 +39,11 @@ export default function Header() {
 
           <div id="dropdown-header-freebie" className="z-10 hidden overflow-hidden shadow-lg bg-primary w-44">
             <ul className="">
-              {shopConfig?.shop.category?.map((item, index) => {
-              return <MenuItem key={index} title={item?.category} onClick={() => null} />;
-              })}
+              <MenuItem
+                title={"Wallpaper"}
+                onClick={() => navigate("/freebies?_=wallpaper")}
+                className="pl-6 text-sm"
+              />
             </ul>
           </div>
 
@@ -64,16 +66,7 @@ export default function Header() {
           >
             <ul>
               <li className="block px-4 py-2 text-white hover:bg-black/60 ">Freebies</li>
-              {shopConfig?.shop.category?.map((item, index) => {
-                return (
-                  <MenuItem
-                    key={index}
-                    title={item?.category}
-                    onClick={() => null}
-                    className="pl-6 text-sm"
-                  />
-                );
-              })}
+              <MenuItem title={"Wallpaper"} onClick={() => null} className="pl-6 text-sm" />
             </ul>
             <ul>
               <MenuItem title={"Blog"} onClick={() => navigate("/blog")} />
