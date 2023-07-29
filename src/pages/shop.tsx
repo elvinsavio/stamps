@@ -13,9 +13,21 @@ interface IProduct {
   category: string;
 }
 
+type TCategory = {
+  category: string;
+  description?: string;
+};
+function getCategory(): TCategory[] {
+  const tempCat = shopConfig?.shop?.category;
+  tempCat.unshift({
+    category: "All",
+  });
+  return tempCat;
+}
+
 export default function Shop() {
   const [products, setProducts] = useState<IProduct[]>(shopConfig?.shop?.products);
-  const [category, setCategory] = useState(shopConfig?.shop?.category[0]);
+  const [category, setCategory] = useState<TCategory | undefined>();
   const [filter, setFilter] = useState("Recommended");
 
   const getDiscountedPrice = (price: number, discount: number | undefined) => {
@@ -50,31 +62,23 @@ export default function Shop() {
 
   useEffect(() => {
     let tempProduct = shopConfig?.shop?.products;
-    if (category.category === "All") {
+    if (category?.category === "All") {
       setProducts(tempProduct);
     } else {
-      tempProduct = tempProduct.filter((each) => each.category === category.category);
+      tempProduct = tempProduct.filter((each) => each.category === category?.category);
       setProducts(tempProduct);
     }
-  }, [category.category]);
+  }, [category?.category]);
 
+  useEffect(() => {
+    const tempCat = getCategory()[0];
+    setCategory(tempCat);
+  }, []);
   return (
     <>
       <div className="flex flex-col items-start justify-center border-b bg-pale">
-        {/* <div className="w-full p-2 text-center font-mark bg-pale/40 ">
-          <h1 className="text-3xl">{category?.category}</h1>
-          <p className="text-xl">{category?.description}</p>
-        </div> */}
         <div className=" contianer">
           <div className="flex overflow-x-auto snap-x">
-            <div
-              onClick={() => setCategory({ category: "All" })}
-              className={`px-5 py-2 border-r font-mark whitespace-nowrap snap-start cursor-pointer  ${
-                category?.category === "All" ? "bg-primary text-white "  : "bg-pale"
-              }`}
-            >
-              All
-            </div>
             {shopConfig?.shop?.category?.map((_category, index) => {
               return (
                 <div
@@ -127,7 +131,7 @@ export default function Shop() {
         </div>
       </div>
       <div>
-      <p className="px-2 bg-pale">{category?.description}</p>
+        <p className="px-2 bg-pale">{category?.description}</p>
       </div>
 
       <div className="flex flex-col items-center min-h-screen justify bg-pale">
@@ -177,7 +181,11 @@ const ProductCard = ({ product }: IProductCard) => {
               <span className="">{product?.price}₹</span>
             )}
           </div>
-          <a href={product?.redirectUrl} target="_blank" className="w-full p-1 font-bold text-center text-white bg-secondary">
+          <a
+            href={product?.redirectUrl}
+            target="_blank"
+            className="w-full p-1 font-bold text-center text-white bg-secondary"
+          >
             Buy now!
           </a>
         </div>
@@ -189,7 +197,10 @@ const ProductCard = ({ product }: IProductCard) => {
 const DropDownItem = ({ children, onClick }: { children: ReactNode; onClick: () => void }) => {
   return (
     <li>
-      <span onClick={onClick} className="block px-4 py-2 text-white cursor-pointer hover:bg-black/60 hover:bg-secondary">
+      <span
+        onClick={onClick}
+        className="block px-4 py-2 text-white cursor-pointer hover:bg-black/60 hover:bg-secondary"
+      >
         {children}
       </span>
     </li>
