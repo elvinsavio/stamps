@@ -126,7 +126,6 @@ export default function Shop() {
             <DropDownItem onClick={() => setFilter("Recommended")}>Recommended</DropDownItem>
             <DropDownItem onClick={() => setFilter("Price (Lowest)")}>Price (Lowest)</DropDownItem>
             <DropDownItem onClick={() => setFilter("Price (Highest)")}>Price (Highest)</DropDownItem>
-            <DropDownItem onClick={() => null}>HW</DropDownItem>
           </ul>
         </div>
       </div>
@@ -156,7 +155,7 @@ const ProductCard = ({ product }: IProductCard) => {
       <div className="overflow-hidden">
         <div
           style={{ backgroundImage: `url(${product?.imgSrc})` }}
-          className=" bg-cover bg-center h-[250px] transition-all p-2"
+          className=" bg-cover bg-center h-[250px] transition-all p-2 bg-secondary/50"
         >
           <span className="flex-wrap px-2 text-white bg-black w-fit line-clamp-1">{product.category}</span>
         </div>
