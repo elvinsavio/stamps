@@ -2,7 +2,6 @@ import { ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { config } from "../appConfig/appConfig";
-import { shopConfig } from "../appConfig/shopConfig";
 
 import logo from "../assets/images/logo-bnw.png";
 
