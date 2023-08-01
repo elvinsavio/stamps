@@ -1,9 +1,9 @@
 {
   "name": "stamps",
   "private": false,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
-  "homepage": "https://elvinsavio.github.io/",
+  "homepage": "https://elvinsavio.github.io/stamps",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
